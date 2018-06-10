@@ -1,0 +1,8 @@
+.welcome-card {
+  margin: 0 5%;
+}
+
+.welcome-card-avatar {
+  background-color: black;
+  background-size: cover;
+}
