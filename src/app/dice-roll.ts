@@ -1,3 +1,7 @@
+import { RollResult } from './roll-result';
+
 export interface DiceRoll {
-  roll(dSize: number, crit: number, goal: number, biff: number): number;
+  generate(dSize: number, dNum: number, goal: number, crit: number, biff: number): RollResult;
+
+  roll(dSize: number, dNum: number): number[];
 }

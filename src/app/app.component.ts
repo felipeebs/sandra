@@ -6,4 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  dSize: number;
+  dNum: number;
+  roll: number[] = [];
+
+  rollClicked() {
+    // TODO
+    this.roll = [];
+  }
 }
