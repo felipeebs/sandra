@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { OfflineDiceRoll } from './dice-roll-offline';
+import { RollResult } from './roll-result';
 
 @Component({
   selector: 'sandra-root',
@@ -8,10 +10,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   dSize: number;
   dNum: number;
-  roll: number[] = [];
+  goal: number;
+  crit: number;
+  biff: number;
+  rollHistory: RollResult[] = [];
+  private roller = new OfflineDiceRoll();
 
   rollClicked() {
-    // TODO
-    this.roll = [];
+    const roll = this.roller.generate(this.dSize, this.dNum, this.goal, this.crit, this.biff);
+    this.rollHistory.push(roll);
   }
 }

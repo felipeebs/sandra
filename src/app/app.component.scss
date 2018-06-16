@@ -2,3 +2,15 @@
   background-color: black;
   background-size: cover;
 }
+
+.main-card {
+  max-width: 500px;
+}
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  .flex-input {
+    flex: auto;
+  }
+}

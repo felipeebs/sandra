@@ -11,7 +11,10 @@ import {
   MatInputModule,
   MatToolbarModule,
   MatCardModule,
+  MatChipsModule,
 } from '@angular/material';
+
+import { OfflineDiceRoll } from './dice-roll-offline';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,7 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
