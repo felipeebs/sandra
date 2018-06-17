@@ -14,10 +14,12 @@ import {
   MatChipsModule,
   MatSlideToggleModule,
 } from '@angular/material';
+import { RollCardComponent } from './roll-card/roll-card.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RollCardComponent,
   ],
   imports: [
     BrowserModule,
