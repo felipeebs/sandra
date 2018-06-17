@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { OfflineDiceRoll } from './dice-roll-offline';
 import { RollResult } from './roll-result';
 
@@ -7,17 +8,32 @@ import { RollResult } from './roll-result';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  dSize: number;
-  dNum: number;
-  goal: number;
-  crit: number;
-  biff: number;
+export class AppComponent implements OnInit {
+  form1: FormGroup;
+  complex: boolean;
   rollHistory: RollResult[] = [];
   private roller = new OfflineDiceRoll();
 
-  rollClicked() {
-    const roll = this.roller.generate(this.dSize, this.dNum, this.goal, this.crit, this.biff);
-    this.rollHistory.push(roll);
+  onSubmit() {
+    if (this.form1.valid) {
+      const values = this.form1.value;
+      let roll;
+      if (this.complex) {
+        roll = this.roller.generate(values.dSize, values.dNum, values.goal, values.crit, values.biff);
+      } else {
+        roll = this.roller.generate(values.dSize, values.dNum);
+      }
+      this.rollHistory.unshift(roll);
+    }
+  }
+
+  ngOnInit() {
+    this.form1 = new FormGroup({
+      'dSize': new FormControl(null),
+      'dNum': new FormControl(null),
+      'goal': new FormControl(null),
+      'crit': new FormControl(null),
+      'biff': new FormControl(null),
+    });
   }
 }

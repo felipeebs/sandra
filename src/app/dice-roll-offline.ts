@@ -2,7 +2,7 @@ import { DiceRoll } from './dice-roll';
 import { RollResult } from './roll-result';
 
 export class OfflineDiceRoll implements DiceRoll {
-  generate(dSize, dNum, goal, crit, biff) {
+  generate(dSize, dNum, goal = null, crit = null, biff = null) {
     return new RollResult(dSize, dNum, crit, goal, biff, this.roll(dSize, dNum));
   }
 

@@ -7,4 +7,8 @@ export class RollResult {
     public biff: number,
     public roll: number[]
   ) {}
+
+  isCOmplex() {
+    return this.crit && this.biff && this.goal;
+  }
 }

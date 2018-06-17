@@ -17,36 +17,47 @@
 </mat-card>
 
 <mat-card class="main-card">
+  <form [formGroup]="form1" (submit)="onSubmit()">
   <mat-card-content>
     <div class="flex-row">
       <mat-form-field class="flex-input">
-        <input type="number" id="dSize" name="dSize"
-               [(ngModel)]="dSize" matInput placeholder="Size">
+        <input type="number" id="dNum" name="dNum" required
+               formControlName="dNum" matInput placeholder="How many">
       </mat-form-field>
       <mat-form-field class="flex-input">
-        <input type="number" id="dNum" name="dNum"
-               [(ngModel)]="dNum" matInput placeholder="How many">
+        <input type="number" id="dSize" name="dSize" required
+               formControlName="dSize" matInput placeholder="Size">
       </mat-form-field>
+      <mat-slide-toggle [(ngModel)]="complex" [ngModelOptions]="{standalone: true}">Complex</mat-slide-toggle>
     </div>
-    <div class="flex-row">
+    <div class="flex-row" *ngIf="complex">
       <mat-form-field class="flex-input">
-        <input type="number" id="crit" name="crit"
-               [(ngModel)]="crit" matInput placeholder="Crit">
+        <input type="number" id="crit" name="crit" [required]="complex"
+               formControlName="crit" matInput placeholder="Crit">
       </mat-form-field>
       <mat-form-field class="flex-input">
-        <input type="number" id="biff" name="biff"
-               [(ngModel)]="biff" matInput placeholder="Biff">
+        <input type="number" id="biff" name="biff" [required]="complex"
+               formControlName="biff" matInput placeholder="Biff">
       </mat-form-field>
       <mat-form-field class="flex-input">
-        <input type="number" id="goal" name="goal"
-               [(ngModel)]="goal" matInput placeholder="Goal">
+        <input type="number" id="goal" name="goal" [required]="complex"
+               formControlName="goal" matInput placeholder="Goal">
       </mat-form-field>
-    </div>
-    <div>
-      <button mat-raised-button color="primary" (click)="rollClicked()">Roll</button>
     </div>
     <div>
-      <mat-chip-list *ngFor="let r of rollHistory">
+      <button mat-raised-button color="primary">Roll</button>
+    </div>
+  </mat-card-content>
+  </form>
+</mat-card>
+<mat-card *ngFor="let r of rollHistory">
+  <mat-card-header>
+    <mat-card-title>{{r.dNum}}d{{r.dSize}}</mat-card-title>
+    <mat-card-subtitle *ngIf="r.isCOmplex()">{{r.biff}}/{{r.goal}}/{{r.crit}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div>
+      <mat-chip-list>
         <mat-chip *ngFor="let n of r.roll">{{n}}</mat-chip>
       </mat-chip-list>
     </div>

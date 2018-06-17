@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   MatButtonModule,
   MatFormFieldModule,
@@ -12,9 +12,8 @@ import {
   MatToolbarModule,
   MatCardModule,
   MatChipsModule,
+  MatSlideToggleModule,
 } from '@angular/material';
-
-import { OfflineDiceRoll } from './dice-roll-offline';
 
 @NgModule({
   declarations: [
@@ -25,12 +24,14 @@ import { OfflineDiceRoll } from './dice-roll-offline';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatChipsModule,
+    MatSlideToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
