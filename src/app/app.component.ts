@@ -9,14 +9,14 @@ import { RollResult } from './roll-result';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  form1: FormGroup;
+  rollSettingsForm: FormGroup;
   complex: boolean;
   rollHistory: RollResult[] = [];
   private roller = new OfflineDiceRoll();
 
   onSubmit() {
-    if (this.form1.valid) {
-      const values = this.form1.value;
+    if (this.rollSettingsForm.valid) {
+      const values = this.rollSettingsForm.value;
       let roll;
       if (this.complex) {
         roll = this.roller.generate(values.dSize, values.dNum, values.goal, values.crit, values.biff);
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.form1 = new FormGroup({
+    this.rollSettingsForm = new FormGroup({
       'dSize': new FormControl(null),
       'dNum': new FormControl(null),
       'goal': new FormControl(null),

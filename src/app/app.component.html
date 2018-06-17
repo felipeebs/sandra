@@ -17,7 +17,7 @@
 </mat-card>
 
 <mat-card class="main-card">
-  <form [formGroup]="form1" (submit)="onSubmit()">
+  <form [formGroup]="rollSettingsForm" (submit)="onSubmit()">
   <mat-card-content>
     <div class="flex-row">
       <mat-form-field class="flex-input">
@@ -32,15 +32,15 @@
     </div>
     <div class="flex-row" *ngIf="complex">
       <mat-form-field class="flex-input">
-        <input type="number" id="crit" name="crit" [required]="complex"
+        <input type="number" id="crit" name="crit"
                formControlName="crit" matInput placeholder="Crit">
       </mat-form-field>
       <mat-form-field class="flex-input">
-        <input type="number" id="biff" name="biff" [required]="complex"
+        <input type="number" id="biff" name="biff"
                formControlName="biff" matInput placeholder="Biff">
       </mat-form-field>
       <mat-form-field class="flex-input">
-        <input type="number" id="goal" name="goal" [required]="complex"
+        <input type="number" id="goal" name="goal"
                formControlName="goal" matInput placeholder="Goal">
       </mat-form-field>
     </div>
