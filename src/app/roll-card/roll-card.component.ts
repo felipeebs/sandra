@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { DiceRoll } from '../dice-roll';
+import { RollResult } from '../roll-result';
+
 
 @Component({
   selector: 'sandra-roll-card',
@@ -7,5 +8,24 @@ import { DiceRoll } from '../dice-roll';
   styleUrls: ['./roll-card.component.scss']
 })
 export class RollCardComponent {
-  @Input() diceRoll: DiceRoll;
+  @Input() rollResult: RollResult;
+
+  dieColor(n) {
+    if (this.rollResult.isCOmplex()) {
+      if (n <= this.rollResult.biff) {
+        return 'die-biff';
+      } else if (n >= this.rollResult.crit) {
+        return 'die-crit';
+      } else if (n >= this.rollResult.goal) {
+        return 'die-goal';
+      }
+    } else {
+      if (n === 1) {
+        return 'die-biff';
+      } else if (n === this.rollResult.dSize) {
+        return 'die-crit';
+      }
+    }
+    return 'die-default';
+  }
 }

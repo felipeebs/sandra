@@ -1,12 +1,12 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>{{diceRoll.dNum}}d{{diceRoll.dSize}}</mat-card-title>
-    <mat-card-subtitle *ngIf="diceRoll.isCOmplex()">{{diceRoll.biff}}/{{diceRoll.goal}}/{{diceRoll.crit}}</mat-card-subtitle>
+    <mat-card-title>{{rollResult.dNum}}d{{rollResult.dSize}}</mat-card-title>
+    <mat-card-subtitle *ngIf="rollResult.isCOmplex()">{{rollResult.biff}}/{{rollResult.goal}}/{{rollResult.crit}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <div>
       <mat-chip-list>
-        <mat-chip *ngFor="let n of diceRoll.roll">{{n}}</mat-chip>
+        <mat-chip *ngFor="let n of rollResult.roll" class="die" [ngClass]="dieColor(n)">{{n}}</mat-chip>
       </mat-chip-list>
     </div>
   </mat-card-content>
