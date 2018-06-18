@@ -16,12 +16,7 @@ export class AppComponent implements OnInit {
   onSubmit() {
     if (this.rollSettingsForm.valid) {
       const values = this.rollSettingsForm.value;
-      let roll;
-      if (this.complex) {
-        roll = this.roller.generate(values.dSize, values.dNum, values.goal, values.crit, values.biff);
-      } else {
-        roll = this.roller.generate(values.dSize, values.dNum);
-      }
+      const roll = this.roller.generate(values.dSize, values.dNum, values.goal, values.crit, values.biff);
       this.rollHistory.unshift(roll);
     }
   }

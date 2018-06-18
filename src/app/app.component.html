@@ -27,20 +27,21 @@
       <mat-form-field class="flex-input">
         <input type="number" id="dSize" name="dSize" required
                formControlName="dSize" matInput placeholder="Size">
+        <span matPrefix>d</span>
       </mat-form-field>
       <mat-slide-toggle [(ngModel)]="complex" [ngModelOptions]="{standalone: true}">Complex</mat-slide-toggle>
     </div>
     <div class="flex-row" *ngIf="complex">
       <mat-form-field class="flex-input">
-        <input type="number" id="crit" name="crit"
+        <input type="number" id="crit" name="crit" [required]="rollSettingsForm.controls['biff'].value || rollSettingsForm.controls['goal'].value"
                formControlName="crit" matInput placeholder="Crit">
       </mat-form-field>
       <mat-form-field class="flex-input">
-        <input type="number" id="biff" name="biff"
+        <input type="number" id="biff" name="biff" [required]="rollSettingsForm.controls['crit'].value || rollSettingsForm.controls['goal'].value"
                formControlName="biff" matInput placeholder="Biff">
       </mat-form-field>
       <mat-form-field class="flex-input">
-        <input type="number" id="goal" name="goal"
+        <input type="number" id="goal" name="goal" [required]="rollSettingsForm.controls['biff'].value || rollSettingsForm.controls['crit'].value"
                formControlName="goal" matInput placeholder="Goal">
       </mat-form-field>
     </div>
