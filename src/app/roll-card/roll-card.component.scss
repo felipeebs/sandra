@@ -1,9 +1,14 @@
 .die {
+  color: white;
+  font-weight: bold;
   &.die-biff {
+    background-color: darkred;
   }
   &.die-goal {
+    background-color: darkorange;
   }
   &.die-crit {
+    background-color: darkgreen;
   }
   &.die-default {
   }
