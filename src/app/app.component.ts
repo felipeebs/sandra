@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { OfflineDiceRoll } from './dice-roll-offline';
-import { RollResult } from './roll-result';
+import { OfflineDiceRoll, RollResult, SandraValidators } from './sandra';
 
 @Component({
   selector: 'sandra-root',
@@ -31,9 +30,9 @@ export class AppComponent implements OnInit {
     this.rollSettingsForm = new FormGroup({
       'dSize': new FormControl(null),
       'dNum': new FormControl(null),
-      'goal': new FormControl(null),
-      'crit': new FormControl(null),
-      'biff': new FormControl(null),
+      'goal': new FormControl(null, [SandraValidators.valueLtSize, SandraValidators.validateGoal]),
+      'crit': new FormControl(null, [SandraValidators.valueLtSize, SandraValidators.validateCrit]),
+      'biff': new FormControl(null, [SandraValidators.valueLtSize, SandraValidators.validateBiff]),
     });
   }
 }

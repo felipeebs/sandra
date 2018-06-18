@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { RollResult } from '../roll-result';
+import { RollResult } from '../sandra';
 
 
 @Component({

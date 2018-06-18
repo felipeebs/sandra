@@ -15,7 +15,6 @@ export class OfflineDiceRoll implements DiceRoll {
   }
 
   random(dSize) {
-    const roll: number = Math.floor(Math.random() * dSize) + 1;
-    return roll;
+    return Math.floor(Math.random() * dSize) + 1;
   }
 }
