@@ -1,7 +1,7 @@
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, ValidationErrors } from '@angular/forms';
 
 export class SandraValidators {
-  static valueLtSize(control: FormControl): {[s: string ]: boolean} {
+  static valueLtSize(control: FormControl): ValidationErrors {
     if (control.dirty) {
       const size = control.parent.controls['dSize'].value;
       if (size && control.value > size) {
@@ -11,7 +11,7 @@ export class SandraValidators {
     return null;
   }
 
-  static validateGoal(control: FormControl): {[s: string ]: boolean} {
+  static validateGoal(control: FormControl): ValidationErrors {
     if (control.parent) {
       const goal = control.value;
       const crit = control.parent.controls['crit'].value;
@@ -31,7 +31,7 @@ export class SandraValidators {
     return null;
   }
 
-  static validateCrit(control: FormControl): {[s: string ]: boolean} {
+  static validateCrit(control: FormControl): ValidationErrors {
     if (control.parent) {
       const goal = control.parent.controls['goal'].value;
       const crit = control.value;
@@ -51,7 +51,7 @@ export class SandraValidators {
     return null;
   }
 
-  static validateBiff(control: FormControl): {[s: string ]: boolean} {
+  static validateBiff(control: FormControl): ValidationErrors {
     if (control.parent) {
       const goal = control.parent.controls['goal'].value;
       const crit = control.parent.controls['crit'].value;
@@ -68,5 +68,33 @@ export class SandraValidators {
       }
     }
     return null;
+  }static validateComplexFields(group: FormGroup): Promise<ValidationErrors> {
+    return new Promise((resolve, reject) => {
+      if (group.controls['dSize'].valid && group.controls['dNum'].valid) {
+        const crit = group.controls['crit'].value;
+        const biff = group.controls['biff'].value;
+        const goal = group.controls['goal'].value;
+        const errors = {};
+
+        // validations start
+        if (crit && biff && crit <= biff) {
+          errors['critLtBiff'] = true;
+        }
+
+        if (crit && goal && crit <= goal) {
+          errors['critLtGoal'] = true;
+        }
+
+        if (goal && biff && goal <= biff) {
+          errors['goalLtBiff'] = true;
+        }
+        // validations end
+
+        if (Object.keys(errors).length) {
+          resolve(errors);
+        }
+      }
+      resolve(null);
+    });
   }
 }

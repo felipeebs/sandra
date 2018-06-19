@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { OfflineDiceRoll, RollResult, SandraValidators } from './sandra';
 
 @Component({
@@ -7,7 +7,7 @@ import { OfflineDiceRoll, RollResult, SandraValidators } from './sandra';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   rollSettingsForm: FormGroup;
   complex: boolean;
   rollHistory: RollResult[] = [];
@@ -21,13 +21,16 @@ export class AppComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-    this.rollSettingsForm = new FormGroup({
-      'dSize': new FormControl(null),
-      'dNum': new FormControl(null),
-      'goal': new FormControl(null, [SandraValidators.valueLtSize, SandraValidators.validateGoal]),
-      'crit': new FormControl(null, [SandraValidators.valueLtSize, SandraValidators.validateCrit]),
-      'biff': new FormControl(null, [SandraValidators.valueLtSize, SandraValidators.validateBiff]),
-    });
+  constructor(private formBuilder: FormBuilder) {
+    this.rollSettingsForm = this.formBuilder.group(
+      {
+        'dSize': null,
+        'dNum': null,
+        'goal': null, // [null, SandraValidators.valueGtSize],
+        'crit': null, // [null, SandraValidators.valueGtSize],
+        'biff': null, // [null, SandraValidators.valueGtSize],
+      },
+      // { validator: SandraValidators.validateComplexFields }
+    );
   }
 }
