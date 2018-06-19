@@ -14,4 +14,29 @@
       </mat-chip-list>
     </div>
   </mat-card-content>
+  <mat-card-content>
+    Total:
+    <span
+      [ngClass]="{'positive': total > 0, 'negative': total <= 0, 'complex': rollResult.isCOmplex()}"
+      class="total">
+      {{total}}
+    </span>
+  </mat-card-content>
+  <mat-card-content *ngIf="rollResult.isCOmplex()">
+    <span [ngPlural]="successCount">
+      {{successCount}}
+      <ng-template ngPluralCase="1">Success</ng-template>
+      <ng-template ngPluralCase="other">Successes</ng-template>
+    </span>
+    <span [ngPlural]="critCount" *ngIf="critCount">
+      {{critCount}}
+      <ng-template ngPluralCase="1">Crit</ng-template>
+      <ng-template ngPluralCase="other">Crits</ng-template>
+    </span>
+    <span [ngPlural]="failCount" *ngIf="failCount">
+      {{failCount}}
+      <ng-template ngPluralCase="1">Fail</ng-template>
+      <ng-template ngPluralCase="other">Fails</ng-template>
+    </span>
+  </mat-card-content>
 </mat-card>

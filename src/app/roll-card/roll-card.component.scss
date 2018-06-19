@@ -27,3 +27,14 @@
     }
   }
 }
+.total {
+  font-weight: bold;
+  &.complex {
+    &.positive {
+      color: green;
+    }
+    &.negative {
+      color: red;
+    }
+  }
+}
