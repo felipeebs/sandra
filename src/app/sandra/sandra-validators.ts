@@ -68,8 +68,9 @@ export class SandraValidators {
       }
     }
     return null;
-  }static validateComplexFields(group: FormGroup): Promise<ValidationErrors> {
-    return new Promise((resolve, reject) => {
+  }
+
+  static validateComplexFields(group: FormGroup): ValidationErrors {
       if (group.controls['dSize'].valid && group.controls['dNum'].valid) {
         const crit = group.controls['crit'].value;
         const biff = group.controls['biff'].value;
@@ -91,10 +92,9 @@ export class SandraValidators {
         // validations end
 
         if (Object.keys(errors).length) {
-          resolve(errors);
+          return errors;
         }
       }
-      resolve(null);
-    });
+      return null;
   }
 }

@@ -26,11 +26,11 @@ export class AppComponent {
       {
         'dSize': null,
         'dNum': null,
-        'goal': null, // [null, SandraValidators.valueGtSize],
-        'crit': null, // [null, SandraValidators.valueGtSize],
-        'biff': null, // [null, SandraValidators.valueGtSize],
+        'goal': [null, [SandraValidators.valueLtSize, SandraValidators.validateGoal]],
+        'crit': [null, [SandraValidators.valueLtSize, SandraValidators.validateCrit]],
+        'biff': [null, [SandraValidators.valueLtSize, SandraValidators.validateBiff]],
       },
-      // { validator: SandraValidators.validateComplexFields }
+      { validator: SandraValidators.validateComplexFields }
     );
   }
 }
