@@ -1,7 +1,7 @@
-import { DiceRoll } from './dice-roll';
-import { RollResult } from './roll-result';
+import { DiceRollService } from './dice-roll.service';
+import { RollResult } from '../roll-result';
 
-export class OfflineDiceRoll implements DiceRoll {
+export class OfflineDiceRollService implements DiceRollService {
   generate(dSize, dNum, goal = null, crit = null, biff = null) {
     return new RollResult(dSize, dNum, crit, goal, biff, this.roll(dSize, dNum));
   }
@@ -14,7 +14,7 @@ export class OfflineDiceRoll implements DiceRoll {
     return roll;
   }
 
-  random(dSize) {
+  private random(dSize) {
     return Math.floor(Math.random() * dSize) + 1;
   }
 }
