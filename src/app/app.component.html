@@ -16,41 +16,7 @@
   </mat-card-content>
 </mat-card>
 
-<mat-card class="main-card">
-  <form [formGroup]="rollSettingsForm" (submit)="onSubmit()">
-  <mat-card-content>
-    <div class="flex-row">
-      <mat-form-field class="flex-input">
-        <input type="number" id="dNum" name="dNum" required min="1"
-               formControlName="dNum" matInput placeholder="How many">
-      </mat-form-field>
-      <mat-form-field class="flex-input">
-        <input type="number" id="dSize" name="dSize" required min="1"
-               formControlName="dSize" matInput placeholder="Size">
-        <span matPrefix>d</span>
-      </mat-form-field>
-      <mat-slide-toggle [(ngModel)]="complex" [ngModelOptions]="{standalone: true}">Complex</mat-slide-toggle>
-    </div>
-    <div class="flex-row" *ngIf="complex">
-      <mat-form-field class="flex-input">
-        <input type="number" id="crit" name="crit" [required]="rollSettingsForm.controls['biff'].value || rollSettingsForm.controls['goal'].value"
-               formControlName="crit" matInput placeholder="Crit">
-      </mat-form-field>
-      <mat-form-field class="flex-input">
-        <input type="number" id="biff" name="biff" [required]="rollSettingsForm.controls['crit'].value || rollSettingsForm.controls['goal'].value"
-               formControlName="biff" matInput placeholder="Biff">
-      </mat-form-field>
-      <mat-form-field class="flex-input">
-        <input type="number" id="goal" name="goal" [required]="rollSettingsForm.controls['biff'].value || rollSettingsForm.controls['crit'].value"
-               formControlName="goal" matInput placeholder="Goal">
-      </mat-form-field>
-    </div>
-    <div>
-      <button mat-raised-button color="primary">Roll</button>
-    </div>
-  </mat-card-content>
-  </form>
-</mat-card>
+<sandra-form-card [rollHistory]="rollHistory"></sandra-form-card>
 <sandra-roll-card *ngFor="let roll of rollHistory" [rollResult]="roll"></sandra-roll-card>
 
 <router-outlet></router-outlet>

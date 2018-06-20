@@ -1,0 +1,12 @@
+.main-card {
+  max-width: 500px;
+  margin: auto;
+}
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  .flex-input {
+    flex: auto;
+  }
+}

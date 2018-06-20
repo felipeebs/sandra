@@ -1,6 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RollResult } from '../sandra';
-
 
 @Component({
   selector: 'sandra-roll-card',
