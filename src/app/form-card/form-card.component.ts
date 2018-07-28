@@ -12,12 +12,17 @@ import { RollResult, SandraValidators } from '../sandra';
 export class FormCardComponent {
   @Input() rollHistory: RollResult[];
   rollSettingsForm: FormGroup;
-  complex: boolean;
+  complex = false;
 
   onSubmit() {
     if (this.rollSettingsForm.valid) {
       const values = this.rollSettingsForm.value;
-      const roll = this.rollService.generate(values.dSize, values.dNum, values.goal, values.crit, values.biff);
+      let roll: RollResult;
+      if (this.complex) {
+        roll = this.rollService.generate(values.dSize, values.dNum, values.goal, values.crit, values.biff);
+      } else {
+        roll = this.rollService.generate(values.dSize, values.dNum);
+      }
       this.rollHistory.unshift(roll);
     }
   }

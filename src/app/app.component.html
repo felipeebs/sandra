@@ -3,19 +3,6 @@
     <h1>SANDRA</h1>
   </mat-toolbar-row>
 </mat-toolbar>
-<mat-card class="welcome-card">
-  <mat-card-header>
-    <div mat-card-avatar class="welcome-card-avatar"></div>
-    <mat-card-title>Welcome to SANDRA</mat-card-title>
-    <mat-card-subtitle>The Super Awasome Nice Dice Roller App</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <p>SANDRA is a pet project of mine and is currently in very early stages of development.</p>
-    <p>SANDRA is provided as-is, in a pre-alpha version. No guarantees, no manuals, no hidden fees.
-      Use at your own risk.</p>
-    <p>Rolls may vary.</p>
-  </mat-card-content>
-</mat-card>
 
 <sandra-form-card [rollHistory]="rollHistory"></sandra-form-card>
 <sandra-roll-card *ngFor="let roll of rollHistory" [rollResult]="roll"></sandra-roll-card>

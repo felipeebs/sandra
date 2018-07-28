@@ -11,7 +11,7 @@
                  formControlName="dSize" matInput placeholder="Size">
           <span matPrefix>d</span>
         </mat-form-field>
-        <mat-slide-toggle [(ngModel)]="complex" [ngModelOptions]="{standalone: true}">Complex</mat-slide-toggle>
+        <mat-slide-toggle (change)="complex = !complex">Complex</mat-slide-toggle>
       </div>
       <div class="flex-row" *ngIf="complex">
         <mat-form-field class="flex-input">
