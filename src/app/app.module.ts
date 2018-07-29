@@ -11,7 +11,6 @@ import {
   MatInputModule,
   MatToolbarModule,
   MatCardModule,
-  MatChipsModule,
   MatSlideToggleModule,
 } from '@angular/material';
 import { RollCardComponent } from './roll-card/roll-card.component';
@@ -33,7 +32,6 @@ import { FormCardComponent } from './form-card/form-card.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatChipsModule,
     MatSlideToggleModule,
   ],
   providers: [],

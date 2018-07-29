@@ -21,6 +21,8 @@ export class RollCardComponent implements OnInit {
         return 'die-crit';
       } else if (n >= this.rollResult.goal) {
         return 'die-goal';
+      } else {
+        return 'die-default';
       }
     } else {
       if (n === 1) {
@@ -29,7 +31,6 @@ export class RollCardComponent implements OnInit {
         return 'die-crit';
       }
     }
-    return 'die-default';
   }
 
   ngOnInit() {

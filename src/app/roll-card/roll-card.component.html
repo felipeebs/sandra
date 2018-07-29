@@ -9,9 +9,9 @@
   </mat-card-header>
   <mat-card-content>
     <div>
-      <mat-chip-list>
-        <mat-chip *ngFor="let n of rollResult.roll" class="die" [ngClass]="dieColor(n)">{{n}}</mat-chip>
-      </mat-chip-list>
+      <ul>
+        <li *ngFor="let n of rollResult.roll" class="die" [ngClass]="dieColor(n)">{{n}}</li>
+      </ul>
     </div>
   </mat-card-content>
   <mat-card-content>
