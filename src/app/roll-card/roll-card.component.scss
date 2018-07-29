@@ -14,15 +14,12 @@
   width: 30px;
   &.die-biff {
     background: darkred radial-gradient(red, darkred);
-    //box-shadow: 0 0 2px 2px lightpink;
   }
   &.die-goal {
     background: rgb(0, 150, 50) radial-gradient(rgb(200, 255, 80), rgb(0, 150, 50));
-    //box-shadow: 0 0 2px 2px lightgreen;
   }
   &.die-crit {
     background: rgb(170, 110, 0) radial-gradient(rgb(255, 240, 20), rgb(170, 110, 0));
-    //box-shadow: 0 0 2px 2px rgb(255, 240, 20);
   }
   &.die-default {
     background: lightgray;
@@ -37,10 +34,10 @@
       color: darkred;
     }
     &.setting-goal {
-      color: darkorange;
+      color: darkgreen;
     }
     &.setting-crit {
-      color: darkgreen;
+      color: darkorange;
     }
   }
 }
