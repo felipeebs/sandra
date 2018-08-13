@@ -12,18 +12,20 @@ import {
   MatCardModule,
   MatSlideToggleModule,
 } from '@angular/material';
-import { RollCardComponent } from './roll-card/roll-card.component';
 import { FormCardComponent } from './form-card/form-card.component';
 import { StoreModule } from '@ngrx/store';
 import { sandraReducer } from './sandra/store/sandra.reducers';
 import { RollHistoryComponent } from './roll-history/roll-history.component';
+import { RollCardSimpleComponent } from './roll-card/roll-card-simple/roll-card-simple.component';
+import { RollCardComplexComponent } from './roll-card/roll-card-complex/roll-card-complex.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RollCardComponent,
     FormCardComponent,
     RollHistoryComponent,
+    RollCardSimpleComponent,
+    RollCardComplexComponent,
   ],
   imports: [
     BrowserModule,
