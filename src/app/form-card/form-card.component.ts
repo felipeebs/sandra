@@ -10,24 +10,23 @@ import { RollResult, SandraValidators } from '../sandra';
   providers: [OfflineDiceRollService]
 })
 export class FormCardComponent {
-  @Input() rollHistory: RollResult[];
   rollSettingsForm: FormGroup;
   complex = false;
 
   onSubmit() {
     if (this.rollSettingsForm.valid) {
       const values = this.rollSettingsForm.value;
-      let roll: RollResult;
       if (this.complex) {
-        roll = this.rollService.generate(values.dSize, values.dNum, values.goal, values.crit, values.biff);
+        this.rollService.generate(values.dSize, values.dNum, values.goal, values.crit, values.biff);
       } else {
-        roll = this.rollService.generate(values.dSize, values.dNum);
+        this.rollService.generate(values.dSize, values.dNum);
       }
-      this.rollHistory.unshift(roll);
+      this.rollSettingsForm.reset(values);
     }
   }
 
-  constructor(private formBuilder: FormBuilder, private rollService: OfflineDiceRollService) {
+  constructor(private formBuilder: FormBuilder,
+              private rollService: OfflineDiceRollService) {
     this.rollSettingsForm = this.formBuilder.group(
       {
         'dSize': null,

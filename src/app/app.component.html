@@ -4,7 +4,7 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<sandra-form-card [rollHistory]="rollHistory"></sandra-form-card>
-<sandra-roll-card *ngFor="let roll of rollHistory" [rollResult]="roll"></sandra-roll-card>
+<sandra-form-card></sandra-form-card>
+<sandra-roll-card *ngFor="let roll of (rollState | async).history" [rollResult]="roll"></sandra-roll-card>
 
 <router-outlet></router-outlet>

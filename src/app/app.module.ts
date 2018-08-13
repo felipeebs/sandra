@@ -15,6 +15,8 @@ import {
 } from '@angular/material';
 import { RollCardComponent } from './roll-card/roll-card.component';
 import { FormCardComponent } from './form-card/form-card.component';
+import { StoreModule } from '@ngrx/store';
+import { sandraReducer } from './sandra/store/sandra.reducers';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { FormCardComponent } from './form-card/form-card.component';
     MatInputModule,
     MatButtonModule,
     MatSlideToggleModule,
+    StoreModule.forRoot({rolls: sandraReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
