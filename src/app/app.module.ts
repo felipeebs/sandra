@@ -16,12 +16,14 @@ import { RollCardComponent } from './roll-card/roll-card.component';
 import { FormCardComponent } from './form-card/form-card.component';
 import { StoreModule } from '@ngrx/store';
 import { sandraReducer } from './sandra/store/sandra.reducers';
+import { RollHistoryComponent } from './roll-history/roll-history.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RollCardComponent,
     FormCardComponent,
+    RollHistoryComponent,
   ],
   imports: [
     BrowserModule,
