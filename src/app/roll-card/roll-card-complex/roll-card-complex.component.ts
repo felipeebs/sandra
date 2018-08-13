@@ -17,22 +17,14 @@ export class RollCardComplexComponent implements OnInit {
   failCount = 0;
 
   dieColor(n) {
-    if (this.rollResult.isCOmplex()) {
-      if (n <= this.rollResult.biff) {
-        return 'die-biff';
-      } else if (n >= this.rollResult.crit) {
-        return 'die-crit';
-      } else if (n >= this.rollResult.goal) {
-        return 'die-goal';
-      } else {
-        return 'die-default';
-      }
+    if (n <= this.rollResult.biff) {
+      return 'die-biff';
+    } else if (n >= this.rollResult.crit) {
+      return 'die-crit';
+    } else if (n >= this.rollResult.goal) {
+      return 'die-goal';
     } else {
-      if (n === 1) {
-        return 'die-biff';
-      } else if (n === this.rollResult.dSize) {
-        return 'die-crit';
-      }
+      return 'die-default';
     }
   }
 
