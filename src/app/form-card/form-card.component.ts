@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { OfflineDiceRollService } from '../sandra/services';
-import { RollResult, SandraValidators } from '../sandra';
+import { SandraValidators } from '../sandra';
 
 @Component({
   selector: 'sandra-form-card',
