@@ -4,13 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-// import {
-//   MatButtonModule,
-//   MatFormFieldModule,
-//   MatInputModule,
-//   MatCardModule,
-//   MatSlideToggleModule,
-// } from '@angular/material';
 import { FormCardComponent } from './form-card/form-card.component';
 import { StoreModule } from '@ngrx/store';
 import { sandraReducer } from './sandra/store/sandra.reducers';
@@ -30,11 +23,6 @@ import { RollCardComplexComponent } from './roll-card/roll-card-complex/roll-car
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    // MatCardModule,
-    // MatFormFieldModule,
-    // MatInputModule,
-    // MatButtonModule,
-    // MatSlideToggleModule,
     StoreModule.forRoot({rolls: sandraReducer})
   ],
   providers: [],
