@@ -1,35 +1,37 @@
-<mat-card class="main-card">
+<div class="mat-card main-card">
   <form [formGroup]="rollSettingsForm" (submit)="onSubmit()">
-    <mat-card-content>
+    <div class="mat-card-content">
       <div class="flex-row">
-        <mat-form-field class="flex-input">
+        <div class="mat-form-field flex-input">
           <input type="number" id="dNum" name="dNum" required min="1"
                  formControlName="dNum" matInput placeholder="How many">
-        </mat-form-field>
-        <mat-form-field class="flex-input">
+        </div>
+        <div class="mat-form-field flex-input">
           <input type="number" id="dSize" name="dSize" required min="1"
                  formControlName="dSize" matInput placeholder="Size">
           <span matPrefix>d</span>
-        </mat-form-field>
-        <mat-slide-toggle (change)="complex = !complex">Complex</mat-slide-toggle>
+        </div>
+        <div class="mat-form-field flex-input">
+          <label><input type="checkbox" (change)="complex = !complex"> Complex</label>
+        </div>
       </div>
       <div class="flex-row" *ngIf="complex">
-        <mat-form-field class="flex-input">
+        <div class="mat-form-field flex-input">
           <input type="number" id="crit" name="crit" [required]="rollSettingsForm.controls['biff'].value || rollSettingsForm.controls['goal'].value"
                  formControlName="crit" matInput placeholder="Crit">
-        </mat-form-field>
-        <mat-form-field class="flex-input">
+        </div>
+        <div class="mat-form-field flex-input">
           <input type="number" id="biff" name="biff" [required]="rollSettingsForm.controls['crit'].value || rollSettingsForm.controls['goal'].value"
                  formControlName="biff" matInput placeholder="Biff">
-        </mat-form-field>
-        <mat-form-field class="flex-input">
+        </div>
+        <div class="mat-form-field flex-input">
           <input type="number" id="goal" name="goal" [required]="rollSettingsForm.controls['biff'].value || rollSettingsForm.controls['crit'].value"
                  formControlName="goal" matInput placeholder="Goal">
-        </mat-form-field>
+        </div>
       </div>
       <div>
         <button mat-raised-button color="primary">Roll</button>
       </div>
-    </mat-card-content>
+    </div>
   </form>
-</mat-card>
+</div>
