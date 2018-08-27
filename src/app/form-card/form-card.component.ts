@@ -25,6 +25,10 @@ export class FormCardComponent {
     }
   }
 
+  onChangeSize(size) {
+    this.rollSettingsForm.controls['crit'].setValue(size);
+  }
+
   constructor(private formBuilder: FormBuilder,
               private rollService: OfflineDiceRollService) {
     this.rollSettingsForm = this.formBuilder.group(
@@ -33,7 +37,7 @@ export class FormCardComponent {
         'dNum': null,
         'goal': [null, [SandraValidators.valueLtSize, SandraValidators.validateGoal]],
         'crit': [null, [SandraValidators.valueLtSize, SandraValidators.validateCrit]],
-        'biff': [null, [SandraValidators.valueLtSize, SandraValidators.validateBiff]],
+        'biff': [1,    [SandraValidators.valueLtSize, SandraValidators.validateBiff]],
       },
       { validator: SandraValidators.validateComplexFields }
     );
