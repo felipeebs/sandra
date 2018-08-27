@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { OfflineDiceRollService } from '../sandra/services';
-import { RollResult, SandraValidators } from '../sandra';
+import { SandraValidators } from '../sandra';
 
 @Component({
   selector: 'sandra-form-card',
@@ -10,31 +10,34 @@ import { RollResult, SandraValidators } from '../sandra';
   providers: [OfflineDiceRollService]
 })
 export class FormCardComponent {
-  @Input() rollHistory: RollResult[];
   rollSettingsForm: FormGroup;
   complex = false;
 
   onSubmit() {
     if (this.rollSettingsForm.valid) {
       const values = this.rollSettingsForm.value;
-      let roll: RollResult;
       if (this.complex) {
-        roll = this.rollService.generate(values.dSize, values.dNum, values.goal, values.crit, values.biff);
+        this.rollService.generate(values.dSize, values.dNum, values.goal, values.crit, values.biff);
       } else {
-        roll = this.rollService.generate(values.dSize, values.dNum);
+        this.rollService.generate(values.dSize, values.dNum);
       }
-      this.rollHistory.unshift(roll);
+      this.rollSettingsForm.reset(values);
     }
   }
 
-  constructor(private formBuilder: FormBuilder, private rollService: OfflineDiceRollService) {
+  onChangeSize(size) {
+    this.rollSettingsForm.controls['crit'].setValue(size);
+  }
+
+  constructor(private formBuilder: FormBuilder,
+              private rollService: OfflineDiceRollService) {
     this.rollSettingsForm = this.formBuilder.group(
       {
         'dSize': null,
         'dNum': null,
         'goal': [null, [SandraValidators.valueLtSize, SandraValidators.validateGoal]],
         'crit': [null, [SandraValidators.valueLtSize, SandraValidators.validateCrit]],
-        'biff': [null, [SandraValidators.valueLtSize, SandraValidators.validateBiff]],
+        'biff': [1,    [SandraValidators.valueLtSize, SandraValidators.validateBiff]],
       },
       { validator: SandraValidators.validateComplexFields }
     );

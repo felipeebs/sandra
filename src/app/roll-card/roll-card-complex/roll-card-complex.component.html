@@ -1,28 +1,26 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title><h3>{{rollResult.dNum}}d{{rollResult.dSize}}</h3></mat-card-title>
-    <mat-card-subtitle class="settings" *ngIf="rollResult.isCOmplex()">
+    <mat-card-subtitle class="settings">
       <span class="setting-biff">{{rollResult.biff}}</span>/
       <span class="setting-goal">{{rollResult.goal}}</span>/
       <span class="setting-crit">{{rollResult.crit}}</span>
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <div>
-      <ul>
-        <li *ngFor="let n of rollResult.roll" class="die" [ngClass]="dieColor(n)">{{n}}</li>
-      </ul>
-    </div>
+    <ul>
+      <li *ngFor="let n of rollResult.roll" class="die" [ngClass]="dieColor(n)">{{n}}</li>
+    </ul>
   </mat-card-content>
   <mat-card-content>
     Total:
     <span
-      [ngClass]="{'positive': total > 0, 'negative': total <= 0, 'complex': rollResult.isCOmplex()}"
-      class="total">
+      [ngClass]="{'positive': total > 0, 'negative': total <= 0}"
+      class="total complex">
       {{total}}
     </span>
   </mat-card-content>
-  <mat-card-content *ngIf="rollResult.isCOmplex()">
+  <mat-card-content>
     <span [ngPlural]="successCount">
       {{successCount}}
       <ng-template ngPluralCase="1">Success</ng-template>

@@ -1,0 +1,6 @@
+<div *ngFor="let roll of (rollState | async).history">
+  <sandra-roll-card-complex *ngIf="roll.isCOmplex(); else simple" [rollResult]="roll"></sandra-roll-card-complex>
+  <ng-template #simple>
+    <sandra-roll-card-simple [rollResult]="roll"></sandra-roll-card-simple>
+  </ng-template>
+</div>

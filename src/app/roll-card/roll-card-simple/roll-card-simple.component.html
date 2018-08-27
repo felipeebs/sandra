@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title><h3>{{rollResult.dNum}}d{{rollResult.dSize}}</h3></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <ul>
+      <li *ngFor="let n of rollResult.roll" class="die">{{n}}</li>
+    </ul>
+  </mat-card-content>
+  <mat-card-content>
+    Total:
+    <span class="total">
+      {{total}}
+    </span>
+  </mat-card-content>
+</mat-card>

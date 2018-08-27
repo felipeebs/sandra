@@ -82,7 +82,7 @@ export class SandraValidators {
           errors['critLtBiff'] = true;
         }
 
-        if (crit && goal && crit <= goal) {
+        if (crit && goal && crit < goal) {
           errors['critLtGoal'] = true;
         }
 

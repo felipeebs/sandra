@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RollResult } from './sandra';
 
 @Component({
   selector: 'sandra-root',
@@ -7,5 +6,4 @@ import { RollResult } from './sandra';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  rollHistory: RollResult[] = [];
 }
