@@ -26,7 +26,16 @@ export class FormCardComponent {
   }
 
   onChangeSize(size) {
+    if (this.rollSettingsForm.controls['goal'].value > size) {
+      this.rollSettingsForm.controls['goal'].setValue(size);
+    }
     this.rollSettingsForm.controls['crit'].setValue(size);
+  }
+
+  onComplexToggle() {
+    this.complex = !this.complex;
+    this.rollSettingsForm.controls['complex-input'].setValue(this.complex);
+    this.rollSettingsForm.reset(this.rollSettingsForm.value);
   }
 
   constructor(private formBuilder: FormBuilder,
@@ -35,6 +44,7 @@ export class FormCardComponent {
       {
         'dSize': null,
         'dNum': null,
+        'complex-input': false,
         'goal': [null, [SandraValidators.valueLtSize, SandraValidators.validateGoal]],
         'crit': [null, [SandraValidators.valueLtSize, SandraValidators.validateCrit]],
         'biff': [1,    [SandraValidators.valueLtSize, SandraValidators.validateBiff]],

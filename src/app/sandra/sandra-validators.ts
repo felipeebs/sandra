@@ -12,7 +12,7 @@ export class SandraValidators {
   }
 
   static validateGoal(control: FormControl): ValidationErrors {
-    if (control.parent) {
+    if (control.parent && control.parent.controls['complex-input'].value) {
       const goal = control.value;
       const crit = control.parent.controls['crit'].value;
       const biff = control.parent.controls['biff'].value;
@@ -32,7 +32,7 @@ export class SandraValidators {
   }
 
   static validateCrit(control: FormControl): ValidationErrors {
-    if (control.parent) {
+    if (control.parent && control.parent.controls['complex-input'].value) {
       const goal = control.parent.controls['goal'].value;
       const crit = control.value;
       const biff = control.parent.controls['biff'].value;
@@ -52,7 +52,7 @@ export class SandraValidators {
   }
 
   static validateBiff(control: FormControl): ValidationErrors {
-    if (control.parent) {
+    if (control.parent && control.parent.controls['complex-input'].value) {
       const goal = control.parent.controls['goal'].value;
       const crit = control.parent.controls['crit'].value;
       const biff = control.value;
@@ -71,30 +71,30 @@ export class SandraValidators {
   }
 
   static validateComplexFields(group: FormGroup): ValidationErrors {
-      if (group.controls['dSize'].valid && group.controls['dNum'].valid) {
-        const crit = group.controls['crit'].value;
-        const biff = group.controls['biff'].value;
-        const goal = group.controls['goal'].value;
-        const errors = {};
+    if (group.controls['complex-input'].value && group.controls['dSize'].valid && group.controls['dNum'].valid) {
+      const crit = group.controls['crit'].value;
+      const biff = group.controls['biff'].value;
+      const goal = group.controls['goal'].value;
+      const errors = {};
 
-        // validations start
-        if (crit && biff && crit <= biff) {
-          errors['critLtBiff'] = true;
-        }
-
-        if (crit && goal && crit < goal) {
-          errors['critLtGoal'] = true;
-        }
-
-        if (goal && biff && goal <= biff) {
-          errors['goalLtBiff'] = true;
-        }
-        // validations end
-
-        if (Object.keys(errors).length) {
-          return errors;
-        }
+      // validations start
+      if (crit && biff && crit <= biff) {
+        errors['critLtBiff'] = true;
       }
-      return null;
+
+      if (crit && goal && goal > crit) {
+        errors['goalGtCrit'] = true;
+      }
+
+      if (goal && biff && goal <= biff) {
+        errors['goalLtBiff'] = true;
+      }
+      // validations end
+
+      if (Object.keys(errors).length) {
+        return errors;
+      }
+    }
+    return null;
   }
 }

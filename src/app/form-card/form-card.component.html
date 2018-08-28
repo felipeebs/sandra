@@ -11,19 +11,19 @@
                  formControlName="dSize" matInput placeholder="Size" (change)="onChangeSize(rollSettingsForm.controls['dSize'].value)">
           <span matPrefix>d</span>
         </mat-form-field>
-        <mat-slide-toggle (change)="complex = !complex">System</mat-slide-toggle>
+        <mat-slide-toggle id="complex" (change)="onComplexToggle()">System</mat-slide-toggle>
       </div>
       <div class="flex-row" *ngIf="complex">
         <mat-form-field class="flex-input">
-          <input type="number" id="crit" name="crit" [required]="rollSettingsForm.controls['biff'].value || rollSettingsForm.controls['goal'].value"
+          <input type="number" id="crit" name="crit"
                  formControlName="crit" matInput placeholder="Critical">
         </mat-form-field>
         <mat-form-field class="flex-input">
-          <input type="number" id="biff" name="biff" [required]="rollSettingsForm.controls['crit'].value || rollSettingsForm.controls['goal'].value"
+          <input type="number" id="biff" name="biff"
                  formControlName="biff" matInput placeholder="Fail">
         </mat-form-field>
         <mat-form-field class="flex-input">
-          <input type="number" id="goal" name="goal" [required]="rollSettingsForm.controls['biff'].value || rollSettingsForm.controls['crit'].value"
+          <input type="number" id="goal" name="goal"
                  formControlName="goal" matInput placeholder="Difficulty">
         </mat-form-field>
       </div>
