@@ -13,7 +13,7 @@
     </ul>
   </mat-card-content>
   <mat-card-content>
-    Total:
+    {{'Total:' | translate}}
     <span
       [ngClass]="{'positive': total > 0, 'negative': total <= 0}"
       class="total complex">
@@ -23,18 +23,18 @@
   <mat-card-content>
     <span [ngPlural]="successCount">
       {{successCount}}
-      <ng-template ngPluralCase="1">Success</ng-template>
-      <ng-template ngPluralCase="other">Successes</ng-template>
+      <ng-template ngPluralCase="1">{{'Success' | translate}}</ng-template>
+      <ng-template ngPluralCase="other">{{'Successes'| translate}}</ng-template>
     </span>
     <span [ngPlural]="critCount" *ngIf="critCount">
       {{critCount}}
-      <ng-template ngPluralCase="1">Crit</ng-template>
-      <ng-template ngPluralCase="other">Crits</ng-template>
+      <ng-template ngPluralCase="1">{{'Crit'| translate}}</ng-template>
+      <ng-template ngPluralCase="other">{{'Crits'| translate}}</ng-template>
     </span>
     <span [ngPlural]="failCount" *ngIf="failCount">
       {{failCount}}
-      <ng-template ngPluralCase="1">Fail</ng-template>
-      <ng-template ngPluralCase="other">Fails</ng-template>
+      <ng-template ngPluralCase="1">{{'Fail'| translate}}</ng-template>
+      <ng-template ngPluralCase="other">{{'Fails'| translate}}</ng-template>
     </span>
   </mat-card-content>
 </mat-card>

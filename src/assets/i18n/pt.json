@@ -5,5 +5,10 @@
   "Critical": "Crítico",
   "Fail": "Falha",
   "Difficulty": "Dificuldade",
-  "Roll": "Rolar"
+  "Roll": "Rolar",
+  "Success": "Sucesso",
+  "Successes": "Sucessos",
+  "Crit": "Crítico",
+  "Crits": "Críticos",
+  "Fails": "Falhas"
 }
