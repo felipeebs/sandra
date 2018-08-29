@@ -18,6 +18,8 @@ import { sandraReducer } from './sandra/store/sandra.reducers';
 import { RollHistoryComponent } from './roll-history/roll-history.component';
 import { RollCardSimpleComponent } from './roll-card/roll-card-simple/roll-card-simple.component';
 import { RollCardComplexComponent } from './roll-card/roll-card-complex/roll-card-complex.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { RollCardComplexComponent } from './roll-card/roll-card-complex/roll-car
     MatInputModule,
     MatButtonModule,
     MatSlideToggleModule,
-    StoreModule.forRoot({rolls: sandraReducer})
+    StoreModule.forRoot({rolls: sandraReducer}),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
