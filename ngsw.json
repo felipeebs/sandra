@@ -22,17 +22,17 @@
         "https://felipeebs.github.io/sandra/runtime.a66f828dca56eeb90e02.js",
         "https://felipeebs.github.io/sandra/styles.240d2ce91e9605f4082d.css"
       ],
-      "patterns": [
-        "https:\\/\\/fonts\\.googleapis\\.com\\/css\\?family=Roboto:300,400,500",
-        "https:\\/\\/fonts\\.gstatic\\.com\\/s\\/roboto\\/.*"
-      ]
+      "patterns": []
     },
     {
       "name": "assets",
       "installMode": "lazy",
       "updateMode": "prefetch",
       "urls": [],
-      "patterns": []
+      "patterns": [
+        "https:\\/\\/fonts\\.googleapis\\.com\\/css\\?family=Roboto:300,400,500",
+        "https:\\/\\/fonts\\.gstatic\\.com\\/s\\/roboto\\/.*"
+      ]
     }
   ],
   "dataGroups": [],
