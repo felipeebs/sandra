@@ -11,15 +11,7 @@
           "/*.css",
           "/*.js",
           "/assets/icons/*.png"
-        ],
-        "urls": [
-          "https://fonts.googleapis.com/css?family=Roboto:300,400,500",
-          "https://fonts.gstatic.com/s/roboto/**"
         ]
-      },
-      "cacheConfig": {
-        "maxAge": "1d",
-        "strategy": "performance"
       }
     }, {
       "name": "assets",
@@ -28,11 +20,11 @@
       "resources": {
         "files": [
           "/assets/**"
+        ],
+        "urls": [
+          "https://fonts.googleapis.com/css?family=Roboto:300,400,500",
+          "https://fonts.gstatic.com/s/roboto/**"
         ]
-      },
-      "cacheConfig": {
-        "maxAge": "1d",
-        "strategy": "performance"
       }
     }
   ]
